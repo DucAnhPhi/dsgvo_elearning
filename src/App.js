@@ -7,7 +7,7 @@ import Gebot3View from './views/gebot3/gebot3';
 import Gebot4View from './views/gebot4/gebot4';
 import Gebot5View from './views/gebot5/gebot5';
 import Gebot6View from './views/gebot6/gebot6';
-import SidebarComponent from './components/sidebar/sidebar'
+import SidebarComp from './components/sidebar/sidebar'
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Sidebar
-            sidebar={SidebarComponent()}
+            sidebar={<SidebarComp/>}
             docked={true}
             defaultSidebarWidth={250}
           >
