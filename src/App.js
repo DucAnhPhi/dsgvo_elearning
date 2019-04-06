@@ -12,10 +12,34 @@ import FrageAdresseView from './views/frageAdresse/frageAdresse';
 import FrageReligionView from './views/frageReligion/frageReligion';
 import FrageIPView from './views/frageIP/frageIP';
 import FrageEmailView from './views/frageEmail/frageEmail';
-
+import Modal from 'react-modal';
+import OnboardingView from './views/onboarding/onboarding';
+import FinishOnboardingView from './views/finishOnboarding/finishOnboarding';
 import SidebarComp from './components/sidebar/sidebar';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: true
+    };
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.renderViewInModal = this.renderViewInModal.bind(this);
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
+
+  renderViewInModal(view, close) {
+    return(
+      <Modal style={{overlay: { zIndex: 1000 }}} isOpen={this.state.showModal}>
+        {view}
+        {close && <button onClick={this.handleCloseModal}>close</button>}
+      </Modal>
+    );
+  }
+
   render() {
     return (
       <Router>
@@ -25,11 +49,34 @@ class App extends Component {
             docked={true}
             defaultSidebarWidth={250}
           >
-            <Route path="/frageAbteilung" component={FrageAbteilungView} />
-            <Route path="/frageAdresse" component={FrageAdresseView} />
-            <Route path="/frageReligion" component={FrageReligionView} />
-            <Route path="/frageIP" component={FrageIPView} />
-            <Route path="/frageEmail" component={FrageEmailView} />
+            <Route
+              path="/"
+              component={() => this.renderViewInModal(<OnboardingView/>)}
+            />
+            <Route
+              path="/frageAbteilung"
+              component={() => this.renderViewInModal(<FrageAbteilungView />)}
+            />
+            <Route
+              path="/frageAdresse"
+              component={() => this.renderViewInModal(<FrageAdresseView/>)}
+            />
+            <Route
+              path="/frageReligion"
+              component={() => this.renderViewInModal(<FrageReligionView />)}
+            />
+            <Route
+              path="/frageIP"
+              component={() => this.renderViewInModal(<FrageIPView/>)}
+            />
+            <Route
+              path="/frageEmail"
+              component={() => this.renderViewInModal(<FrageEmailView />)}
+            />
+            <Route
+              path="/finishOnboarding"
+              component={() => this.renderViewInModal(<FinishOnboardingView />, true)}
+            />
             <Route path="/gebot1" component={Gebot1View} />
             <Route path="/gebot2" component={Gebot2View} />
             <Route path="/gebot3" component={Gebot3View} />

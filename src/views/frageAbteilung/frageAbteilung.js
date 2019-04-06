@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card'
-import TitleComp from '../../components/title/title'
+import CardComp from '../../components/card/card';
+import TitleComp from '../../components/title/title';
 import { WithContext as ReactTags } from 'react-tag-input';
 import './frageAbteilung.css';
 import ButtonComp from '../../components/button/button';
@@ -52,7 +52,7 @@ class FrageAbteilungView extends Component {
     handleAddition(tag) {
         let tags = [...this.state.tags, tag]
         this.setState({ tags: tags });
-        this.props.setAreasAction(tags);
+        this.props.setAreasAction(tags.map(tag => tag.id));
     }
 
     render() {
