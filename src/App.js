@@ -12,7 +12,9 @@ import FrageAdresseView from './views/frageAdresse/frageAdresse';
 import FrageReligionView from './views/frageReligion/frageReligion';
 import FrageIPView from './views/frageIP/frageIP';
 import FrageEmailView from './views/frageEmail/frageEmail';
-
+import BerechtigtesInteresseView from './views/gebot1/berechtigtes_interesse';
+import EinwilligungBetroffenerView from  './views/gebot1/einwilligung_betroffener';
+import ErfüllungVertragView from './views/gebot1/erfüllung_vertrag';
 import SidebarComp from './components/sidebar/sidebar';
 
 class App extends Component {
@@ -31,6 +33,9 @@ class App extends Component {
             <Route path="/frageIP" component={FrageIPView} />
             <Route path="/frageEmail" component={FrageEmailView} />
             <Route path="/gebot1" component={Gebot1View} />
+            <Route path="/gebot1_berechtiges_interesse" component={BerechtigtesInteresseView} />
+            <Route path="/gebot1_einwilligung_betroffener" component={EinwilligungBetroffenerView} />
+            <Route path="/gebot1_erfüllung_vertrag" component={ErfüllungVertragView} />
             <Route path="/gebot2" component={Gebot2View} />
             <Route path="/gebot3" component={Gebot3View} />
             <Route path="/gebot4" component={Gebot4View} />

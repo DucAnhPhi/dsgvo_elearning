@@ -37,9 +37,25 @@ class SidebarComp extends React.Component {
               triggerStyle={styles.collapsible}
               transitionTime={100}
             >
-              <Link onClick={() => navigateAction('/gebot1')} to={'/gebot1'} style={styles.link}>
-                {'1. Gebot: Verbot mit Erlaubnisvorbehalt'}
-              </Link>
+              <Collapsible
+                trigger = {
+                <Link onClick={() => navigateAction('/gebot1')} to={'/gebot1'} style={styles.link}>
+                  1. Gebot: Verbot mit Erlaubnisvorbehalt
+                </Link>
+                }
+                triggerStyle={styles.collapsible}
+                transitionTime={100}>                
+                <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={styles.link}>
+                {'Erfüllung eines Vertrags'}
+                </Link>
+                <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={styles.link}>
+                {'Einwilligung des Betroffenen'}
+                </Link>
+                <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={styles.link}>
+                {'Berechtigtes Interesse des Unternehmens'}
+                </Link>
+                
+                </Collapsible>
               <Link onClick={() => navigateAction('/gebot2')} to={'/gebot2'} style={styles.link}>
                 {'2. Gebot: Datensparsamkeit'}
               </Link>

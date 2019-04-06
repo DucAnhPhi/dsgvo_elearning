@@ -4,33 +4,14 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
-import QuizComp from '../../components/quiz/quiz'
 
 class Gebot1View extends Component {
 
     render() {
-        let questions = [
-            {
-                id: 'test1',
-                question: "Eine Frage?",
-                possibleAnswers : ["1", "4", "keinen", "darf ich nicht sagen"],
-                rightAnswer: 1
-            },
-            {
-                id: 'test2',
-                question: "Noch eine Frage?",
-                possibleAnswers : ["1", "4", "keinen", "darf ich nicht sagen"],
-                rightAnswer: 3
-            }
-        ]
-       
+        
         return (
             <div className="gebote">
                 <CardComp>
-                    <QuizComp
-                        id={'gebot1'}
-                        questions={questions}
-                    />
                     <TitleComp>Grundlagen 1. Gebot</TitleComp>
                     <SubtitleComp>Verbot mit Erlaubnisvorbehalt</SubtitleComp>
                     <TextComp>Das erste Gebot des Datenschutzes verbirgt sich hinter dem kryptischen Begriff “Verbot mit Erlaubnisvorbehalt”.
