@@ -11,18 +11,26 @@ import { submitAction } from '../../store/quiz'
 class Gebot1View extends Component {
 
     render() {
-        let answers = [
-            "1", "4", "keinen", "darf ich nicht sagen"
+        let questionIds = ["geb1_quiz_question1", "geb1_quiz_question2"]
+        let possibleAnswers = [
+            ["1", "4", "keinen", "darf ich nicht sagen"],
+            ["A", "B", "C", "D"]
         ]
-        let rightAnswer = 3;
-
+        let rightAnswers = [3, 1];
+        let quizId = "geb1_quiz";
         return (
             <div className="gebote">
                 <CardComp>
-                    <QuizComp id="geb1_quiz" submitAction={submitAction}>
-                        <QuestionComp answers={answers} rightAnswer={rightAnswer}>
+                    <QuizComp id={quizId}
+                        questionIds={questionIds}
+                        rightAnswers={rightAnswers}
+                        submitAction={submitAction}>
+
+                        <QuestionComp id={questionIds[0]} answers={possibleAnswers[0]}>
                             Wie viele Datenschutzbeauftragte braucht es, um eine Glübirne zu wechseln?
                         </QuestionComp>
+
+                        <QuestionComp id={questionIds[1]} answers={possibleAnswers[1]}>Noch so ne Frage: Ne?</QuestionComp>
                     </QuizComp>
 
                     <TitleComp>Grundlagen 1. Gebot</TitleComp>

@@ -1,16 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-
 
 class QuestionComp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { answer: "" }
-
-    }
     render() {
-        let answers = createAnswersHTML(this.props.answers)
+        let answers = createAnswersHTML(this.props.answers, this.props.id)
         return (
             <div>
                 {this.props.children}
@@ -22,14 +14,9 @@ class QuestionComp extends React.Component {
     }
 }
 
-QuestionComp.propTypes = {
-    answers: PropTypes.array,
-    rightAnswer: PropTypes.number
-}
-
-function createAnswersHTML(answers){
+function createAnswersHTML(answers, id){
     return answers.map(answer => (
-        <div><input type="radio" />
+        <div><input type="radio" name={id} value={id.slice(-1)} />
             <span>{answer}</span>
         </div>))
 }
