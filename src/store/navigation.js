@@ -24,6 +24,7 @@ export const navigation = (state = initialState, action) => {
             return {
                 route: action.payload.route
             };
+        default:
+            return state;
     };
-    return state;
 };

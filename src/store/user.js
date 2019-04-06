@@ -39,6 +39,7 @@ export const user = (state = initialState, action) => {
             return {
                 role: action.payload.area
             };
+        default:
+            return state;
     };
-    return state;
 };
