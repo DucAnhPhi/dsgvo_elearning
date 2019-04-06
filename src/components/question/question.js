@@ -1,24 +1,56 @@
 import React from 'react';
+import SubtitleComp from '../subtitle/subtitle';
+import PropTypes from 'prop-types';
 
 class QuestionComp extends React.Component {
     render() {
-        let answers = createAnswersHTML(this.props.answers, this.props.id)
+        const { question, selectAnswer } = this.props;
         return (
             <div>
-                {this.props.children}
-                <ul>
-                    {answers}
-                </ul>
+                <SubtitleComp>{question.question}</SubtitleComp>
+                <div>
+                    {
+                        question.possibleAnswers.map((answer, i) => (
+                            <div key={i}>
+                                <input
+                                    type="radio"
+                                    name={question.id}
+                                    onClick={() => selectAnswer(answer)}
+                                />
+                                <span>{answer}</span>
+                            </div>
+                        ))
+                    }
+                </div>
+
             </div>
         );
     }
 }
 
-function createAnswersHTML(answers, id){
-    return answers.map(answer => (
-        <div><input type="radio" name={id} value={id.slice(-1)} />
-            <span>{answer}</span>
-        </div>))
+function renderPossibleAnswers(possibleAnswers, questionId, selectAnswer) {
+    return (
+        <div>
+            {
+                possibleAnswers.map((answer, i) => (
+                    <div key={i}>
+                        <input
+                            type="radio"
+                            name={questionId}
+                            onClick={() => selectAnswer(answer)}
+                        />
+                        <span>{answer}</span>
+                    </div>
+                ))
+            }
+        </div>
+    );
 }
+
+QuestionComp.propTypes = {
+    selectAnswer: PropTypes.func,
+    question: PropTypes.object
+};
+
 
 export default QuestionComp;

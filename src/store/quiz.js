@@ -1,18 +1,20 @@
 
 const initialState = {
     finished: [],
+    selectedAnswers: {}
 }
 
 const SUBMIT = 'SUBMIT'
 
 //ACTIONS
 
-export const submitAction = (id) => {
+export const submitAction = (id, selectedAnswers) => {
     return dispatch => {
         dispatch({
             type: SUBMIT,
             payload: { 
-                id : id
+                id,
+                selectedAnswers
             }
         });
     };
@@ -26,7 +28,11 @@ export const quiz = (state = initialState, action) => {
         
         case SUBMIT:
             return {
-                finished : [...state.finished, action.payload.id]
+                finished : [...state.finished, action.payload.id],
+                selectedAnswers : {
+                    ...state.selectedAnswers,
+                    [action.payload.id]: action.payload.selectedAnswers 
+                }
             };
         
         default:

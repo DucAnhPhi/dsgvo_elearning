@@ -2,42 +2,62 @@ import React from 'react';
 import { submitAction } from '../../store/quiz';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import QuestionComp from '../question/question';
+import ButtonComp from '../button/button';
 
 class QuizComp extends React.Component {
 
     constructor(props) {
         super(props);
-        this.getAnswer = function () {
-            let answers = [];
-            for (let question of this.props.questionIds) {
-                var selector = document.querySelector('input[name="' + question + '"]:checked');
-                if (selector) answers.push(selector.value);
-            }
-            return answers;
-        }
+        this.state = {
+            answers: [],
+            finished: false
+        };
+        this.renderQuestions.bind(this);
     }
 
-    render() {
-        if (this.props.finished) {
-            return <div className="submitted">
-                {this.props.children}
+    selectAnswer(id) {
+        this.setState({
+            answers: [...this.state.answers, id]
+        });
+    }
+
+    handleSubmit() {
+        console.log(this.props.id);
+        this.setState({ ...this.state, finished: true });
+        this.props.submitAction(this.props.id, this.state.answers);
+    }
+
+    renderQuestions() {
+        return (
+            <div>
+                {this.props.questions.map(
+                    (question, i) => <QuestionComp key={i} question={question} selectAnswer={this.selectAnswer.bind(this)} />
+                )}
             </div>
-        } else {
-            const submitAction = this.props.submitAction;
-            const formId = this.props.id + "_form";
-            return <form id={formId} className="notSubmitted">
-                {this.props.children}
-                <input type="button" value="Beantworten" onClick={() => {
-                    this.givenAnswers = this.getAnswer();
-                    this.rightAnswers = this.props.rightAnswers;
-                    submitAction(this.props.id)
-                }
-                }
-                />
-            </form>
-        }
+        );
+    }
+    
+
+    render() {
+        return (
+            <div>
+                {this.renderQuestions()}
+                <div onClick={this.handleSubmit.bind(this)}>
+                    <ButtonComp>
+                        Überprüfen
+                    </ButtonComp>
+                </div>
+            </div>
+        );
     }
 }
+
+QuizComp.propTypes = {
+    question: PropTypes.object,
+    submitAction: PropTypes.func
+};
 
 const mapStateToProps = (state, props) => {
     let isFinished = state.quiz.finished.includes(props.id);

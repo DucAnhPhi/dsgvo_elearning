@@ -4,35 +4,33 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
-import QuestionComp from '../../components/question/question'
 import QuizComp from '../../components/quiz/quiz'
-import { submitAction } from '../../store/quiz'
 
 class Gebot1View extends Component {
 
     render() {
-        let questionIds = ["geb1_quiz_question1", "geb1_quiz_question2"]
-        let possibleAnswers = [
-            ["1", "4", "keinen", "darf ich nicht sagen"],
-            ["A", "B", "C", "D"]
+        let questions = [
+            {
+                id: 'test1',
+                question: "Eine Frage?",
+                possibleAnswers : ["1", "4", "keinen", "darf ich nicht sagen"],
+                rightAnswer: 1
+            },
+            {
+                id: 'test2',
+                question: "Noch eine Frage?",
+                possibleAnswers : ["1", "4", "keinen", "darf ich nicht sagen"],
+                rightAnswer: 3
+            }
         ]
-        let rightAnswers = [3, 1];
-        let quizId = "geb1_quiz";
+       
         return (
             <div className="gebote">
                 <CardComp>
-                    <QuizComp id={quizId}
-                        questionIds={questionIds}
-                        rightAnswers={rightAnswers}
-                        submitAction={submitAction}>
-
-                        <QuestionComp id={questionIds[0]} answers={possibleAnswers[0]}>
-                            Wie viele Datenschutzbeauftragte braucht es, um eine Glübirne zu wechseln?
-                        </QuestionComp>
-
-                        <QuestionComp id={questionIds[1]} answers={possibleAnswers[1]}>Noch so ne Frage: Ne?</QuestionComp>
-                    </QuizComp>
-
+                    <QuizComp
+                        id={'gebot1'}
+                        questions={questions}
+                    />
                     <TitleComp>Grundlagen 1. Gebot</TitleComp>
                     <SubtitleComp>Verbot mit Erlaubnisvorbehalt</SubtitleComp>
                     <TextComp>Das erste Gebot des Datenschutzes verbirgt sich hinter dem kryptischen Begriff “Verbot mit Erlaubnisvorbehalt”.
