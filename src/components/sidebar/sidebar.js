@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-class SidebarComponent extends React.Component {
+class SidebarComp extends React.Component {
     render() {
         const navigateAction = this.props.navigateAction
         return (
@@ -28,7 +28,7 @@ class SidebarComponent extends React.Component {
     }
 }
 
-SidebarComponent.propTypes = {
+SidebarComp.propTypes = {
     route: PropTypes.string,
     navigateAction: PropTypes.func
 };
@@ -56,4 +56,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SidebarComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarComp);
