@@ -1,16 +1,16 @@
 import React from 'react';
+import { submitAction } from '../../store/quiz';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class QuizComp extends React.Component{
 
-    constructor(props){
-        super(props);
-    }
-
     render(){
+        const submitAction = this.props.submitAction;
         return(
             <form>
                 {this.props.children}
-                <input type="button" value="Beantworten" onClick=""/>
+                <input type="button" value="Beantworten" onClick={() => submitAction(this.props.id) }/>
             </form>
 
         )
@@ -18,5 +18,10 @@ class QuizComp extends React.Component{
 
 
 }
+const mapStateToProps = state => ({
+    answered: state.quiz.finished
+});
 
-export default QuizComp;
+const mapDispatchToProps = dispatch => bindActionCreators({ submitAction }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizComp);
