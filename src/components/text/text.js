@@ -3,7 +3,7 @@ import './text.css'
 
 
 function TextComp(props){
-    return <p class="text">{props.children}</p>
+    return <p class="text">{props.text}</p>
 }
 
 export default TextComp;
