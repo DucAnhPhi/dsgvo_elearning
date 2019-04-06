@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './card.css'
 
+
 function CardComp(props) {
   return(
-    <div>Das ist eine Card</div>
-  )
+    <div class="card">
+      {props.children}
+    </div>
+    )
 }
 
 export default CardComp
