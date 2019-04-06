@@ -1,0 +1,11 @@
+.card {
+  font-family: OpenSans,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+  padding: 60px;
+  margin: 10px;
+  max-width: 960px;
+  border: 1px solid #cccccc;
+}
