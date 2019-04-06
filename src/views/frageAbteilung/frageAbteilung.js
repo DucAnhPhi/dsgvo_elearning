@@ -68,7 +68,12 @@ class FrageAbteilungView extends Component {
                       autofocus={true}
                       placeholder={'Ihre Abteilung (z.B. Finanzen)'}
                     />
-                    <ButtonComp disabled={this.state.tags.length == 0}>Weiter</ButtonComp>
+                    <ButtonComp
+                      disabled={this.state.tags.length === 0}
+                      customStyles={{ position: 'absolute', bottom: '60px', right: '60px' }}
+                    >
+                        Weiter
+                    </ButtonComp>
                 </CardComp>
             </div>
         )

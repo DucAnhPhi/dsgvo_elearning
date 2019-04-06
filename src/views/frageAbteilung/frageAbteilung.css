@@ -1,6 +1,7 @@
 /* Example Styles for React Tags*/
 div.ReactTags__tags {
     position: relative;
+    margin-top: 40px;
 }
 
 /* Styles for the input */
