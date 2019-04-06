@@ -1,0 +1,8 @@
+strong {
+    font-size: 1.25em;
+    color: #002a00;
+}
+
+p.warning{
+    background: #e65a5a;
+}
