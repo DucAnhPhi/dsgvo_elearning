@@ -4,12 +4,27 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
+import QuestionComp from '../../components/question/question'
+import QuizComp from '../../components/quiz/quiz'
+import { submitAction } from '../../store/quiz'
 
 class Gebot1View extends Component {
+
     render() {
+        let answers = [
+            "1", "4", "keinen", "darf ich nicht sagen"
+        ]
+        let rightAnswer = 3;
+
         return (
             <div className="gebote">
                 <CardComp>
+                    <QuizComp id="geb1_quiz" submitAction={submitAction}>
+                        <QuestionComp answers={answers} rightAnswer={rightAnswer}>
+                            Wie viele Datenschutzbeauftragte braucht es, um eine Glübirne zu wechseln?
+                        </QuestionComp>
+                    </QuizComp>
+
                     <TitleComp>Grundlagen 1. Gebot</TitleComp>
                     <SubtitleComp>Verbot mit Erlaubnisvorbehalt</SubtitleComp>
                     <TextComp>Das erste Gebot des Datenschutzes verbirgt sich hinter dem kryptischen Begriff “Verbot mit Erlaubnisvorbehalt”.

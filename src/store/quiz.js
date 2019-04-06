@@ -22,14 +22,11 @@ export const submitAction = (id) => {
 //REDUCERS
 
 export const quiz = (state = initialState, action) => {
-    console.log("Reducer triggered");
-    switch(action){
+    switch(action.type){
         
         case SUBMIT:
-            let finished = state.finished;
-            finished.push(action.payload.id);
             return {
-                finished : finished
+                finished : [...state.finished, action.payload.id]
             };
         
         default:
