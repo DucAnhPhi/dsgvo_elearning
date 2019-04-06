@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Sidebar
-            sidebar={SidebarComponent()}
+            sidebar={<SidebarComponent/>}
             docked={true}
             defaultSidebarWidth={250}
           >
