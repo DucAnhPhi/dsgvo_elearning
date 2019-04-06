@@ -2,6 +2,7 @@
 div.ReactTags__tags {
     position: relative;
     margin-top: 40px;
+    padding-bottom: 40px;
 }
 
 /* Styles for the input */
