@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './card.css'
 
 
 function CardComp(props) {
   return(
-    <div class="card">
+    <div className="card">
       {props.children}
     </div>
     )

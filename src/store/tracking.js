@@ -53,6 +53,7 @@ export const tracking = (state = initialState, action) => {
             return {
                 blocksFinished: state.blocksFinished + 1
             };
+        default:
+            return state;
     };
-    return state;
 };

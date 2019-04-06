@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './text.css'
 
 
 function TextComp(props){
-    return <p class="text">{props.children}</p>
+    return <div className="text">{props.children}</div>
 }
 
 export default TextComp;

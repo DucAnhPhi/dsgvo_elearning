@@ -1,28 +1,28 @@
 const initialState = {
-    role: null,
-    area: null
+    roles: [],
+    areas: []
 }
 
 
-const SET_ROLE = 'SET_ROLE';
-const SET_AREA = 'SET_AREA';
+const SET_ROLES = 'SET_ROLES';
+const SET_AREAS = 'SET_AREAS';
 
 // ACTIONS
 
-export const setRoleAction = role => {
+export const setRolesAction = roles => {
     return dispatch => {
         dispatch({
-            type: SET_ROLE,
-            payload: { role: role }
+            type: SET_ROLES,
+            payload: { roles: roles }
         });
     };
 };
 
-export const setAreaAction = area => {
+export const setAreasAction = areas => {
     return dispatch => {
         dispatch({
-            type: SET_AREA,
-            payload: { area: area }
+            type: SET_AREAS,
+            payload: { areas: areas }
         });
     };
 };
@@ -31,14 +31,15 @@ export const setAreaAction = area => {
 
 export const user = (state = initialState, action) => {
     switch (action.type) {
-        case SET_ROLE:
+        case SET_ROLES:
             return {
-                role: action.payload.role
+                roles: action.payload.roles
             };
-        case SET_AREA:
+        case SET_AREAS:
             return {
-                role: action.payload.area
+                areas: action.payload.areas
             };
+        default:
+            return state;
     };
-    return state;
 };
