@@ -12,27 +12,6 @@ class SidebarComp extends React.Component {
         return (
           <div style={{width:280, height:"100%"}}>
             <Collapsible
-              trigger="Fragebogen"
-              triggerStyle={styles.collapsible}
-              transitionTime={100}
-            >
-                <Link onClick={() => navigateAction('/frageAbteilung')} to={'/frageAbteilung'} style={styles.link}>
-                    {'1. In welcher Abteilung arbeiten Sie?'}
-                </Link>
-                <Link onClick={() => navigateAction('/frageAdresse')} to={'/frageAdresse'} style={styles.link}>
-                    {'2. Haben Sie Zugriff auf Adressdaten?'}
-                </Link>
-                <Link onClick={() => navigateAction('/frageReligion')} to={'/frageReligion'} style={styles.link}>
-                    {'3. Haben Sie Zugriff auf Daten über die Religionszugehörigkeit von Personen?'}
-                </Link>
-                <Link onClick={() => navigateAction('/frageIP')} to={'/frageIP'} style={styles.link}>
-                    {'4. Haben Sie Zugriff auf IP-Adressen?'}
-                </Link>
-                <Link onClick={() => navigateAction('/frageEmail')} to={'/frageEmail'} style={styles.link}>
-                    {'5. Haben Sie Zugriff auf Email-Adressen?'}
-                </Link>
-            </Collapsible>
-            <Collapsible
               trigger="Die 6 Gebote des Datenschutzes"
               triggerStyle={styles.collapsible}
               transitionTime={100}
