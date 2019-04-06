@@ -3,6 +3,7 @@ import CardComp from '../../components/card/card'
 import TitleComp from '../../components/title/title'
 import { WithContext as ReactTags } from 'react-tag-input';
 import './frageAbteilung.css';
+import ButtonComp from '../../components/button/button';
 
 class FrageAbteilungView extends Component {
     constructor(props) {
@@ -67,6 +68,7 @@ class FrageAbteilungView extends Component {
                       autofocus={true}
                       placeholder={'Ihre Abteilung (z.B. Finanzen)'}
                     />
+                    <ButtonComp disabled={this.state.tags.length == 0}>Weiter</ButtonComp>
                 </CardComp>
             </div>
         )
