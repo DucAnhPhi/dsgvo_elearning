@@ -1,6 +1,7 @@
 .card {
   font-family: OpenSans,Arial,sans-serif;
   font-size: 12px;
+  position: relative;
   line-height: 18px;
   box-sizing: border-box;
   background-color: #FAFAFA;
