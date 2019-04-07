@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card'
-import TitleComp from '../../components/title/title'
+import CardComp from '../../components/card/card';
+import TitleComp from '../../components/title/title';
 import TextComp from '../../components/text/text';
-import SubtitleComp from '../../components/subtitle/subtitle'
+import SubtitleComp from '../../components/subtitle/subtitle';
+import { navigateAction } from '../../store/navigation';
+import ButtonComp from '../../components/button/button';
+import { Link } from 'react-router-dom';
 
 class EinwilligungBetroffenerView extends Component {
 
@@ -67,7 +70,10 @@ class EinwilligungBetroffenerView extends Component {
                     <TextComp>
                         Normen: Art. 4 Nr. 11 DSGVO, Art. 7 DSGVO
                     </TextComp>
-
+                    
+                    <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'}>
+                        <ButtonComp>Zum Quiz</ButtonComp>
+                    </Link>
                 </CardComp>
             </div>
         )

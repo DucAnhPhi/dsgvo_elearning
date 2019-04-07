@@ -4,6 +4,9 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
+import { navigateAction } from '../../store/navigation';
+import ButtonComp from '../../components/button/button';
+import { Link } from 'react-router-dom';
 
 class DatensparsamkeitView extends Component {
     render() {
@@ -20,6 +23,9 @@ class DatensparsamkeitView extends Component {
                         </WarningComp>
                     </TextComp>
 
+                    <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'}>
+                        <ButtonComp>Zum Quiz</ButtonComp>
+                    </Link>
                 </CardComp>
             </div>
         )
