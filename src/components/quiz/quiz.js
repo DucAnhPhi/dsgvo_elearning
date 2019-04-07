@@ -41,6 +41,9 @@ class QuizComp extends React.Component {
     
 
     render() {
+
+
+
         return (
             <div>
                 {this.renderQuestions()}
