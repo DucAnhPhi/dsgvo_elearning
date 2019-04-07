@@ -4,6 +4,9 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
+import ButtonComp from '../../components/button/button';
+import { Link } from 'react-router-dom';
+import { navigateAction } from '../../store/navigation';
 
 class BerechtigtesInteresseView extends Component {
 
@@ -34,7 +37,9 @@ class BerechtigtesInteresseView extends Component {
                         </ol>
 
                     </TextComp>
-
+                    <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'}>
+                        <ButtonComp>Zum Quiz</ButtonComp>
+                    </Link>
                 </CardComp>
             </div>
         )
