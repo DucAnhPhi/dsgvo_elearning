@@ -21,29 +21,29 @@ class SidebarComp extends React.Component {
             triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
           >
-            <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={this.props.route === "/gebot1_verbot_mit_erlaubnis"? styles.active : styles.link}>
               <span style={styles.bullet}>a)</span>{'Verbot mit Erlaubnisvorbehalt'}
             </Link>
-            <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'} style={styles.link}>
+            <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'} style={this.props.route === "/quiz/gebot1_allgemein" ? styles.active : styles.link}>
               <span style={styles.bullet}>b)</span>{'Quiz: Grundlagen'}
             </Link>
-            <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={this.props.route === "/gebot1_erfüllung_vertrag" ? styles.active : styles.link}>
               <span style={styles.bullet}>c)</span>{'Erfüllung eines Vertrags'}
             
-            </Link><Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'} style={styles.link}>
+            </Link><Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'} style={this.props.route === "/quiz/gebot1_vertrag" ? styles.active : styles.link}>
               <span style={styles.bullet}>d)</span>{'Quiz: Erfüllung eines Vertrags'}
             </Link>
-            <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={this.props.route === "/gebot1_einwilligung_betroffener" ? styles.active : styles.link}>
               <span style={styles.bullet}>e)</span> {'Einwilligung des Betroffenen'}
             </Link>
-            <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'} style={styles.link}>
+            <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'} style={this.props.route === "/quiz/gebot1_einwilligung" ? styles.active : styles.link}>
               <span style={styles.bullet}>f)</span> {'Quiz: Einwilligung des Betroffenen'}
             </Link>
 
-            <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={this.props.route === "/gebot1_berechtiges_interesse" ? styles.active : styles.link}>
               <span style={styles.bullet}>g)</span>{'Berechtigtes Interesse des Unternehmens'}
             </Link>
-            <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'} style={styles.link}>
+            <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'} style={this.props.route === "/quiz/gebot1_interesse" ? styles.active : styles.link}>
               <span style={styles.bullet}>h)</span>{'Quiz: Berechtiges Interesse'}
             </Link>
           </Collapsible>
@@ -53,30 +53,30 @@ class SidebarComp extends React.Component {
             triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
           >
-            <Link onClick={() => navigateAction('/gebot2_datensparsamkeit')} to={'/gebot2_datensparsamkeit'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot2_datensparsamkeit')} to={'/gebot2_datensparsamkeit'} style={this.props.route === "/gebot2_datensparsamkeit" ? styles.active : styles.link}>
               <span style={styles.bullet}>a)</span>{'Datensparsamkeit'}
             </Link>
-            <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'} style={styles.link}>
+            <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'} style={this.props.route === "/quiz/gebot2_allgemein" ? styles.active : styles.link}>
               <span style={styles.bullet}>a)</span>{'Quiz: Datensparsamkeit'}
             </Link>
-            <Link onClick={() => navigateAction('/gebot2_recht_auf_vergessen')} to={'/gebot2_recht_auf_vergessen'} style={styles.link}>
+            <Link onClick={() => navigateAction('/gebot2_recht_auf_vergessen')} to={'/gebot2_recht_auf_vergessen'} style={this.props.route === "/gebot2_recht_auf_vergessen" ? styles.active : styles.link}>
               <span style={styles.bullet}>b)</span>{'Recht auf Vergessen'}
             </Link>
-            <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'} style={styles.link}>
+            <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'} style={this.props.route === "/quiz/gebot2_vergessen" ? styles.active : styles.link}>
               <span style={styles.bullet}>b)</span>{'Quiz: Recht auf Vergessen'}
             </Link>
 
           </Collapsible>
-          <Link onClick={() => navigateAction('/gebot3')} to={'/gebot3'} style={styles.link}>
+          <Link onClick={() => navigateAction('/gebot3')} to={'/gebot3'} style={this.props.route === "/gebot3" ? styles.active : styles.link}>
             {'3. Gebot: Zweckbindung'}
           </Link>
-          <Link onClick={() => navigateAction('/gebot4')} to={'/gebot4'} style={styles.link}>
+          <Link onClick={() => navigateAction('/gebot4')} to={'/gebot4'} style={this.props.route === "/gebot4" ? styles.active : styles.link}>
             {'4. Gebot: Datensicherheit'}
           </Link>
-          <Link onClick={() => navigateAction('/gebot5')} to={'/gebot5'} style={styles.link}>
+          <Link onClick={() => navigateAction('/gebot5')} to={'/gebot5'} style={this.props.route === "/gebot5" ? styles.active : styles.link}>
             {'5. Gebot: Transparenz'}
           </Link>
-          <Link onClick={() => navigateAction('/gebot6')} to={'/gebot6'} style={styles.link}>
+          <Link onClick={() => navigateAction('/gebot6')} to={'/gebot6'} style={this.props.route === "/gebot6" ? styles.active : styles.link}>
             {'6. Gebot: Dokumentation'}
           </Link>
         </Collapsible>
@@ -106,6 +106,15 @@ const styles = {
   },
   link: {
     display: "block",
+    paddingLeft: "20px",
+    fontSize: "14px",
+    textDecoration: "none",
+    color: "black",
+    lineHeight: "30px"
+  },
+  active: {
+    display: "block",
+    backgroundColor : "#334455",
     paddingLeft: "20px",
     fontSize: "14px",
     textDecoration: "none",
