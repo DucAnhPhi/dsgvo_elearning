@@ -15,7 +15,7 @@ class QuestionComp extends React.Component {
                                 <input
                                     type="radio"
                                     name={question.id}
-                                    onClick={() => selectAnswer(answer)}
+                                    onClick={() => selectAnswer(answer, question.id)}
                                 />
                                 <span>{answer}</span>
                             </div>
@@ -26,25 +26,6 @@ class QuestionComp extends React.Component {
             </div>
         );
     }
-}
-
-function renderPossibleAnswers(possibleAnswers, questionId, selectAnswer) {
-    return (
-        <div>
-            {
-                possibleAnswers.map((answer, i) => (
-                    <div key={i}>
-                        <input
-                            type="radio"
-                            name={questionId}
-                            onClick={() => selectAnswer(answer)}
-                        />
-                        <span>{answer}</span>
-                    </div>
-                ))
-            }
-        </div>
-    );
 }
 
 QuestionComp.propTypes = {

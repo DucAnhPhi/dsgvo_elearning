@@ -1,4 +1,4 @@
-{
+const questions = {
     "gebot1_allgemein": [
         {
             "id": "gebot1_allgemein_1",
@@ -322,8 +322,9 @@
                 "Falsch: Das ist Falsch. Das wäre ja verrückt!",
                 "Richtig: Korrekt! Dies ist eine von mehreren Ausnahmen, die hier greifen."
             ],
-            "rightAnswer": ,
+            "rightAnswer": 4,
             "tag": "all"
         }
     ]
-}
+};
+export default questions;

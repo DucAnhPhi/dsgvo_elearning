@@ -33,7 +33,9 @@ class SidebarComp extends React.Component {
             <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={styles.link}>
               <span style={styles.bullet}>d)</span>{'Berechtigtes Interesse des Unternehmens'}
             </Link>
-
+            <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'} style={styles.link}>
+              <span style={styles.bullet}>d)</span>{'Quiz: 1. Gebot'}
+            </Link>
           </Collapsible>
 
           <Collapsible

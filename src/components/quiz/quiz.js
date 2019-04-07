@@ -5,28 +5,34 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import QuestionComp from '../question/question';
 import ButtonComp from '../button/button';
+import SolutionComp from '../solution/solution';
 
 class QuizComp extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            answers: [],
+            answers: {},
             finished: false
         };
+        this.handleSubmit.bind(this);
         this.renderQuestions.bind(this);
+        this.renderSolutions.bind(this);
     }
 
-    selectAnswer(id) {
+    selectAnswer(answer, i) {
+        console.log("i" + i)
         this.setState({
-            answers: [...this.state.answers, id]
+            answers: {
+                ...this.state.answers,
+                [i]: answer
+            }
         });
     }
 
     handleSubmit() {
-        console.log(this.props.id);
         this.setState({ ...this.state, finished: true });
-        this.props.submitAction(this.props.id, this.state.answers);
+        this.props.submitAction(this.props.quizId, this.state.answers);
     }
 
     renderQuestions() {
@@ -38,12 +44,24 @@ class QuizComp extends React.Component {
             </div>
         );
     }
-    
+
+    renderSolutions() {
+        let selectedAnswers = this.state.answers;
+        return (
+            <div>
+                {this.props.questions.map(
+                    (question, i) => {
+                        return <SolutionComp question={question} selectedAnswer={selectedAnswers[question.id]}></SolutionComp>
+                    }
+                )}
+            </div>
+        );
+    }
 
     render() {
-
-
-
+        if (this.state.finished) {
+            return this.renderSolutions();
+        }
         return (
             <div>
                 {this.renderQuestions()}
@@ -59,12 +77,13 @@ class QuizComp extends React.Component {
 
 QuizComp.propTypes = {
     question: PropTypes.object,
-    submitAction: PropTypes.func
+    submitAction: PropTypes.func,
+    quizId: PropTypes.string
 };
 
 const mapStateToProps = (state, props) => {
-    let isFinished = state.quiz.finished.includes(props.id);
-    return { finished: isFinished }
+    let finished = state.quiz.finished.includes(props.quizId);
+    return { finished }
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({ submitAction }, dispatch);
