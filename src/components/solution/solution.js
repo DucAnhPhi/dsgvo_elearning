@@ -17,7 +17,7 @@ class SolutionComp extends React.Component {
                     {
                         this.props.question.possibleAnswers.map((possibleAnswer, i) => (
                             <div key={i}>
-                                {this.getSolutionHTML(possibleAnswer)}
+                                {this.getSolutionHTML(possibleAnswer, i)}
                             </div>
                         ))
                     }
@@ -27,14 +27,27 @@ class SolutionComp extends React.Component {
         );
     }
 
-    getSolutionHTML(possibleAnswer) {
-        let rightAnswerInd = this.props.question.rightAnswer;
-        let rightAnswer = this.props.question.possibleAnswers[rightAnswerInd - 1];
-        console.log(this.props.selectedAnswer);
+    getSolutionHTML(possibleAnswer, i) {
+        let question = this.props.question;
+        let rightAnswer = question.possibleAnswers[question.rightAnswer - 1];
+        let selectedAnswer = this.props.selectedAnswer;
+        console.log(question)
         if (possibleAnswer === rightAnswer) {
-            return <span style={{ color: "green" }} className="correct">{possibleAnswer}</span>
-        } else if (possibleAnswer === this.props.selectedAnswer) {
-            return <span style={{ color: "red" }} className="wrong">{possibleAnswer}</span>
+            let explanation = rightAnswer === selectedAnswer
+            return (
+                <div className="correct">
+                    <div>{possibleAnswer}</div>
+                    {explanation && <div className="explanation">{question.explanations[i]}</div>}
+                </div>
+            )
+        } else if (possibleAnswer === selectedAnswer) {
+            return (
+                <div className="wrong">
+                    <div>{possibleAnswer}</div>
+                    <div className="explanation">{question.explanations[i]}</div>
+                </div>
+            )
+            
         } else {
             return <span>{possibleAnswer}</span>
         }
