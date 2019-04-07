@@ -12,17 +12,12 @@ class OnboardingView extends React.Component {
     render() {
         return(
             <div style={styles.onboarding}>
-                <TitleComp>Willkommen bei Datenschutz E-Learning!</TitleComp>
-                <TextComp>
-                    Hier lernen Sie alles rund um das Datenschutzrecht und die DSGVO intuitiv 
-                    und maßgeschneidert für Ihre individuellen Bedürfnisse.
+                <img style={styles.logo} src={require('../../../resources/images/logo.png')}></img>
+                <TextComp style={styles.bottomSpace}>
+                    Zunächst beantworten Sie einige Fragen zu Ihrem Arbeitsbereich.
+                    <br/>Wir ermitteln dann aus Ihren Antworten Ihren persönlichen Lehrplan.
                 </TextComp>
-                <TextComp>
-                    Zunächst beantworten Sie einige Fragen zu Ihrem Arbeitsbereich und zu den
-                    Datenkategorien, mit denen Sie in Berührung kommen.
-                    Wir ermitteln dann aus Ihren Antworten Ihren persönlichen Lehrplan.
-                </TextComp>
-                <Link to="/frageAbteilung">
+                <Link to="/frageAbteilung" style={styles.next}>
                     <ButtonComp>Fragebogen starten</ButtonComp>
                 </Link>
             </div>
@@ -31,8 +26,17 @@ class OnboardingView extends React.Component {
 }
 
 const styles = {
+    logo: {
+        margin: '0 auto',
+        display: 'block'
+    },
     onboarding: {
-        padding: '60px'
+        margin: '0 auto',
+        textAlign: 'center',
+        width: '700px'
+    },
+    bottomSpace: {
+        marginBottom: '30px'
     }
 };
 

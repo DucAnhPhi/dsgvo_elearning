@@ -26,7 +26,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      showModal: false
+      showModal: true
     };
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.renderViewInModal = this.renderViewInModal.bind(this);
