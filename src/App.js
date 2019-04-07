@@ -49,11 +49,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div style={styles.topBar}>
+          <div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
+            <img style={{height: '60px', marginLeft: '10px'}} src={require('./resources/images/logo_small.png')}/>
+          </div>
+        </div>
+        <div>
           <Sidebar
             sidebar={<SidebarComp />}
             docked={true}
             defaultSidebarWidth={250}
+            styles={{sidebar: {
+              top: '81px'
+            }}}
           >
             <Route
               path="/"
@@ -100,5 +108,14 @@ class App extends Component {
     );
   }
 }
+
+const styles = {
+  topBar: {
+    height: '80px',
+    borderBottom: '1px solid rgba(0,0,0,0.1)',
+    zIndex: 100,
+    display: 'flex'
+  }
+};
 
 export default App;

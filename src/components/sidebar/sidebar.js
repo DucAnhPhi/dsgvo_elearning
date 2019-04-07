@@ -10,7 +10,7 @@ class SidebarComp extends React.Component {
   render() {
     const navigateAction = this.props.navigateAction
     return (
-      <div style={{ width: 360, height: "100%" }}>
+      <div style={{ width: 360, height: "100%", marginTop: '30px' }}>
         <Collapsible
           open={true}
           trigger="Die 6 Gebote des Datenschutzes"
