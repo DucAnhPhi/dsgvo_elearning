@@ -23,7 +23,7 @@ class SidebarComp extends React.Component {
             triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
           >
-            <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={this.props.route === "/gebot1_verbot_mit_erlaubnis"? styles.active : styles.link}>
+            <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={this.props.route === "/gebot1_verbot_mit_erlaubnis" || !this.props.route ? styles.active : styles.link}>
               <span style={styles.bullet}>a)</span>{'Verbot mit Erlaubnisvorbehalt'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'} style={this.props.route === "/quiz/gebot1_allgemein" ? styles.active : styles.link}>
@@ -51,6 +51,7 @@ class SidebarComp extends React.Component {
           </Collapsible>
 
           <Collapsible
+            open={true}
             trigger={'2. Gebot'}
             triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
