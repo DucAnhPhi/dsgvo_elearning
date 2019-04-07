@@ -72,7 +72,7 @@ class QuizComp extends React.Component {
         } else {
             return (
                 <div>
-                    <ButtonComp disble>
+                    <ButtonComp disable>
                         Überprüfen
                 </ButtonComp>
                 </div>
