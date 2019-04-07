@@ -18,6 +18,8 @@ class QuizComp extends React.Component {
         this.handleSubmit.bind(this);
         this.renderQuestions.bind(this);
         this.renderSolutions.bind(this);
+        this.renderButton.bind(this);
+        this.isFormComplete.bind(this);
     }
 
     selectAnswer(answer, i) {
@@ -58,6 +60,35 @@ class QuizComp extends React.Component {
         );
     }
 
+    renderButton() {
+        if (this.isFormComplete()) {
+            return (
+                <div onClick={this.handleSubmit.bind(this)}>
+                    <ButtonComp>
+                        Überprüfen
+                </ButtonComp>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <ButtonComp disble>
+                        Überprüfen
+                </ButtonComp>
+                </div>
+            )
+        }
+    }
+
+    isFormComplete() {
+        for (let question of this.props.questions) {
+            if (!this.state.answers['questionId']) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     render() {
         if (this.state.finished) {
             return this.renderSolutions();
@@ -65,11 +96,7 @@ class QuizComp extends React.Component {
         return (
             <div>
                 {this.renderQuestions()}
-                <div onClick={this.handleSubmit.bind(this)}>
-                    <ButtonComp>
-                        Überprüfen
-                    </ButtonComp>
-                </div>
+                {this.renderButton()}
             </div>
         );
     }
