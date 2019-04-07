@@ -82,7 +82,7 @@ class QuizComp extends React.Component {
 
     isFormComplete() {
         for (let question of this.props.questions) {
-            if (!this.state.answers['questionId']) {
+            if (!this.state.answers[question.id]) {
                 return false;
             }
         }
