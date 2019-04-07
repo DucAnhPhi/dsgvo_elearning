@@ -22,6 +22,7 @@ import DatensparsamkeitView from './views/gebot2/datensparsamkeit';
 import RechtAufVergessenView from './views/gebot2/recht_auf_vergessen';
 import QuizView from './views/quiz';
 import ButtonComp from './components/button/button';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -80,7 +81,7 @@ class App extends Component {
             />
             <Route
               path="/finishOnboarding"
-              component={() => this.renderViewInModal(<FinishOnboardingView><div onClick={this.handleCloseModal}><ButtonComp>Kurs starten</ButtonComp></div></FinishOnboardingView>)}
+              component={() => this.renderViewInModal(<FinishOnboardingView><Link to={"/gebot1_verbot_mit_erlaubnis"} onClick={this.handleCloseModal}><ButtonComp>Kurs starten</ButtonComp></Link></FinishOnboardingView>)}
             />
             <Route path="/gebot1_verbot_mit_erlaubnis" component={VerbotMitErlaubnisView} />
             <Route path="/gebot1_berechtiges_interesse" component={BerechtigtesInteresseView} />
