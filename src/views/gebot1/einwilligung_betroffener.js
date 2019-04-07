@@ -6,6 +6,8 @@ import SubtitleComp from '../../components/subtitle/subtitle';
 import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class EinwilligungBetroffenerView extends Component {
 
@@ -72,7 +74,7 @@ class EinwilligungBetroffenerView extends Component {
                     </TextComp>
                     
                     <div style={{textAlign: 'right', marginTop: '20px'}}>
-                        <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'}>
                             <ButtonComp>Zum Quiz</ButtonComp>
                         </Link>
                     </div>
@@ -82,4 +84,6 @@ class EinwilligungBetroffenerView extends Component {
     }
 }
 
-export default EinwilligungBetroffenerView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(EinwilligungBetroffenerView);

@@ -4,9 +4,11 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
-import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { navigateAction } from '../../store/navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class VerbotMitErlaubnisView extends Component {
 
@@ -42,7 +44,7 @@ class VerbotMitErlaubnisView extends Component {
                     </TextComp>
 
                     <div style={{textAlign: 'right', marginTop: '20px'}}>
-                        <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
                             <ButtonComp>Zum Quiz</ButtonComp>
                         </Link>
                     </div>
@@ -52,4 +54,6 @@ class VerbotMitErlaubnisView extends Component {
     }
 }
 
-export default VerbotMitErlaubnisView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(VerbotMitErlaubnisView);
