@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card';
-import TitleComp from '../../components/title/title';
+import CardComp from '../../../components/card/card';
+import TitleComp from '../../../components/title/title';
 
 class FinishOnboardingView extends Component {
     render() {
