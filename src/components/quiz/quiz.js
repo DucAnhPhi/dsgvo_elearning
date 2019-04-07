@@ -5,13 +5,14 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import QuestionComp from '../question/question';
 import ButtonComp from '../button/button';
+import SolutionComp from '../solution/solution';
 
 class QuizComp extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            answers: [],
+            answers: {},
             finished: false
         };
         this.handleSubmit.bind(this);
@@ -19,9 +20,13 @@ class QuizComp extends React.Component {
         this.renderSolutions.bind(this);
     }
 
-    selectAnswer(id) {
+    selectAnswer(answer, i) {
+        console.log("i" + i)
         this.setState({
-            answers: [...this.state.answers, id]
+            answers: {
+                ...this.state.answers,
+                [i]: answer
+            }
         });
     }
 
@@ -40,18 +45,21 @@ class QuizComp extends React.Component {
         );
     }
 
-    renderSolutions(){
-        return(
+    renderSolutions() {
+        let selectedAnswers = this.state.answers;
+        return (
             <div>
                 {this.props.questions.map(
-                    (question, i) => 
+                    (question, i) => {
+                        return <SolutionComp question={question} selectedAnswer={selectedAnswers[question.id]}></SolutionComp>
+                    }
                 )}
             </div>
         );
     }
 
     render() {
-        if(this.state.finished){
+        if (this.state.finished) {
             return this.renderSolutions();
         }
         return (
