@@ -24,17 +24,27 @@ class SidebarComp extends React.Component {
             <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={styles.link}>
               <span style={styles.bullet}>a)</span>{'Verbot mit Erlaubnisvorbehalt'}
             </Link>
+            <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'} style={styles.link}>
+              <span style={styles.bullet}>b)</span>{'Quiz: Grundlagen'}
+            </Link>
             <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={styles.link}>
-              <span style={styles.bullet}>b)</span>{'Erfüllung eines Vertrags'}
+              <span style={styles.bullet}>c)</span>{'Erfüllung eines Vertrags'}
+            
+            </Link><Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'} style={styles.link}>
+              <span style={styles.bullet}>d)</span>{'Quiz: Erfüllung eines Vertrags'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={styles.link}>
-              <span style={styles.bullet}>c)</span> {'Einwilligung des Betroffenen'}
+              <span style={styles.bullet}>e)</span> {'Einwilligung des Betroffenen'}
             </Link>
+            <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'} style={styles.link}>
+              <span style={styles.bullet}>f)</span> {'Quiz: Einwilligung des Betroffenen'}
+            </Link>
+
             <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={styles.link}>
-              <span style={styles.bullet}>d)</span>{'Berechtigtes Interesse des Unternehmens'}
+              <span style={styles.bullet}>g)</span>{'Berechtigtes Interesse des Unternehmens'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'} style={styles.link}>
-              <span style={styles.bullet}>d)</span>{'Quiz: 1. Gebot'}
+              <span style={styles.bullet}>h)</span>{'Quiz: Berechtiges Interesse'}
             </Link>
           </Collapsible>
 
@@ -46,8 +56,14 @@ class SidebarComp extends React.Component {
             <Link onClick={() => navigateAction('/gebot2_datensparsamkeit')} to={'/gebot2_datensparsamkeit'} style={styles.link}>
               <span style={styles.bullet}>a)</span>{'Datensparsamkeit'}
             </Link>
+            <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'} style={styles.link}>
+              <span style={styles.bullet}>a)</span>{'Quiz: Datensparsamkeit'}
+            </Link>
             <Link onClick={() => navigateAction('/gebot2_recht_auf_vergessen')} to={'/gebot2_recht_auf_vergessen'} style={styles.link}>
               <span style={styles.bullet}>b)</span>{'Recht auf Vergessen'}
+            </Link>
+            <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'} style={styles.link}>
+              <span style={styles.bullet}>b)</span>{'Quiz: Recht auf Vergessen'}
             </Link>
 
           </Collapsible>
