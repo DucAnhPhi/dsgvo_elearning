@@ -71,8 +71,8 @@ class QuizComp extends React.Component {
             )
         } else {
             return (
-                <div>
-                    <ButtonComp disable>
+                <div style={{textAlign: 'right', marginTop: '20px'}}>
+                    <ButtonComp disabled={true}>
                         Überprüfen
                 </ButtonComp>
                 </div>
