@@ -114,7 +114,7 @@ const styles = {
   },
   active: {
     display: "block",
-    backgroundColor : "#334455",
+    backgroundColor : "rgba(0,0,0,0.1)",
     paddingLeft: "20px",
     fontSize: "14px",
     textDecoration: "none",
