@@ -1,5 +1,5 @@
 import React from 'react';
-import { submitAction } from '../../store/quiz';
+import { submitAction, selectAnswerAction } from '../../store/quiz';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -11,11 +11,6 @@ class QuizComp extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            answers: {},
-            finished: false
-        };
-        this.handleSubmit.bind(this);
         this.renderQuestions.bind(this);
         this.renderSolutions.bind(this);
         this.renderButton.bind(this);
@@ -23,18 +18,14 @@ class QuizComp extends React.Component {
     }
 
     selectAnswer(answer, i) {
-        console.log("i" + i)
-        this.setState({
-            answers: {
-                ...this.state.answers,
-                [i]: answer
-            }
-        });
+        this.props.selectAnswerAction(answer, i);
     }
 
     handleSubmit() {
-        this.setState({ ...this.state, finished: true });
-        this.props.submitAction(this.props.quizId, this.state.answers);
+        const id = this.props.navParams.params.id;
+        const { finishedIds } = this.props;
+        //this.setState({ ...this.state, finishedIds: finishedIds.includes(id) ? finishedIds : [...finishedIds, id] });
+        this.props.submitAction(this.props.navParams.params.id);
     }
 
     renderQuestions() {
@@ -48,12 +39,11 @@ class QuizComp extends React.Component {
     }
 
     renderSolutions() {
-        let selectedAnswers = this.state.answers;
         return (
             <div>
                 {this.props.questions.map(
                     (question, i) => {
-                        return <SolutionComp question={question} selectedAnswer={selectedAnswers[question.id]}></SolutionComp>
+                        return <SolutionComp question={question} key={i} selectedAnswer={this.props.selectedAnswers[question.id]}></SolutionComp>
                     }
                 )}
             </div>
@@ -66,7 +56,7 @@ class QuizComp extends React.Component {
                 <div onClick={this.handleSubmit.bind(this)} style={{textAlign: 'right', marginTop: '20px'}}>
                     <ButtonComp>
                         Überprüfen
-                </ButtonComp>
+                    </ButtonComp>
                 </div>
             )
         } else {
@@ -82,7 +72,7 @@ class QuizComp extends React.Component {
 
     isFormComplete() {
         for (let question of this.props.questions) {
-            if (!this.state.answers[question.id]) {
+            if (!this.props.selectedAnswers[question.id]) {
                 return false;
             }
         }
@@ -90,7 +80,7 @@ class QuizComp extends React.Component {
     }
 
     render() {
-        if (this.state.finished) {
+        if (this.props.finishedIds.includes(this.props.navParams.params.id)) {
             return this.renderSolutions();
         }
         return (
@@ -105,14 +95,15 @@ class QuizComp extends React.Component {
 QuizComp.propTypes = {
     question: PropTypes.object,
     submitAction: PropTypes.func,
-    quizId: PropTypes.string
+    selectAnswerAction: PropTypes.func,
+    navParams: PropTypes.object,
+    selectedAnswers: PropTypes.object
 };
 
-const mapStateToProps = (state, props) => {
-    let finished = state.quiz.finished.includes(props.quizId);
-    return { finished }
-};
-
-const mapDispatchToProps = dispatch => bindActionCreators({ submitAction }, dispatch);
+const mapStateToProps = state => ({
+    finishedIds: state.quiz.finished,
+    selectedAnswers: state.quiz.selectedAnswers
+});
+const mapDispatchToProps = dispatch => bindActionCreators({ submitAction, selectAnswerAction }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizComp);

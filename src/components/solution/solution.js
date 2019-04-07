@@ -31,7 +31,6 @@ class SolutionComp extends React.Component {
         let question = this.props.question;
         let rightAnswer = question.possibleAnswers[question.rightAnswer - 1];
         let selectedAnswer = this.props.selectedAnswer;
-        console.log(question)
         if (possibleAnswer === rightAnswer) {
             let explanation = rightAnswer === selectedAnswer
             return (
