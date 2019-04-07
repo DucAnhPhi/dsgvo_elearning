@@ -3,6 +3,9 @@ import CardComp from '../../components/card/card'
 import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import WarningComp from '../../components/warning/warning'
+import { navigateAction } from '../../store/navigation';
+import ButtonComp from '../../components/button/button';
+import { Link } from 'react-router-dom';
 
 class RechtAufVergessenView extends Component {
 
@@ -26,6 +29,9 @@ class RechtAufVergessenView extends Component {
                     <TextComp>
                         Normen: Art. 17 DSGVO
                     </TextComp>
+                    <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'}>
+                        <ButtonComp>Zum Quiz</ButtonComp>
+                    </Link>
                 </CardComp></div>
         )
     }
