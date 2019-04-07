@@ -21,6 +21,7 @@ import VerbotMitErlaubnisView from './views/gebot1/verbot_mit_erlaubnis';
 import DatensparsamkeitView from './views/gebot2/datensparsamkeit';
 import RechtAufVergessenView from './views/gebot2/recht_auf_vergessen';
 import QuizView from './views/quiz';
+import ButtonComp from './components/button/button';
 
 class App extends Component {
   constructor() {
@@ -36,11 +37,10 @@ class App extends Component {
     this.setState({ showModal: false });
   }
 
-  renderViewInModal(view, close) {
+  renderViewInModal(view) {
     return (
       <Modal style={{ overlay: { zIndex: 1000 } }} isOpen={this.state.showModal}>
         {view}
-        {close && <button onClick={this.handleCloseModal}>close</button>}
       </Modal>
     );
   }
@@ -80,7 +80,7 @@ class App extends Component {
             />
             <Route
               path="/finishOnboarding"
-              component={() => this.renderViewInModal(<FinishOnboardingView />, true)}
+              component={() => this.renderViewInModal(<FinishOnboardingView><div onClick={this.handleCloseModal}><ButtonComp>Kurs starten</ButtonComp></div></FinishOnboardingView>)}
             />
             <Route path="/gebot1_verbot_mit_erlaubnis" component={VerbotMitErlaubnisView} />
             <Route path="/gebot1_berechtiges_interesse" component={BerechtigtesInteresseView} />

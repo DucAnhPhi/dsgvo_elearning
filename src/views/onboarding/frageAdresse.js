@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card';
+import SubTitleComp from '../../components/subtitle/subtitle';
 import TitleComp from '../../components/title/title';
 import ButtonComp from '../../components/button/button';
 import { connect } from 'react-redux';
@@ -14,21 +14,20 @@ class FrageAdresseView extends Component {
     render() {
         const { setAreasAction, areas } = this.props;
         return (
-            <div>
-                <CardComp>
-                    <TitleComp>2. Haben Sie Zugriff auf Adressdaten?</TitleComp>
-                    <div style={{display: 'flex'}}>
-                        <Link
-                          to={'/frageReligion'}
-                          onClick={() => setAreasAction([...areas, AREA])
-                        }>
-                            <ButtonComp>Ja</ButtonComp>
-                        </Link>
-                        <Link to={'/frageReligion'} style={{marginLeft: '20px'}}>
-                            <ButtonComp>Nein</ButtonComp>
-                        </Link>
-                    </div>
-                </CardComp>
+            <div style={styles.fragebogen}>
+                <TitleComp>Fragebogen</TitleComp>
+                <SubTitleComp>2. Haben Sie Zugriff auf Adressdaten?</SubTitleComp>
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>
+                    <Link
+                        to={'/frageReligion'}
+                        onClick={() => setAreasAction([...areas, AREA])
+                    }>
+                        <ButtonComp>Ja</ButtonComp>
+                    </Link>
+                    <Link to={'/frageReligion'} style={{marginLeft: '20px'}}>
+                        <ButtonComp>Nein</ButtonComp>
+                    </Link>
+                </div>
             </div>
         )
     }
@@ -37,6 +36,14 @@ class FrageAdresseView extends Component {
 FrageAdresseView.propTypes = {
     setAreasAction: PropTypes.func,
     areas: PropTypes.array
+};
+
+const styles = {
+    fragebogen: {
+        margin: '60px auto 0 auto',
+        width: '500px',
+        textAlign: 'center'
+    }
 };
 
 const mapStateToProps = state => ({

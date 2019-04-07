@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card';
 import TitleComp from '../../components/title/title';
+import SubTitleComp from '../../components/subtitle/subtitle';
 import ButtonComp from '../../components/button/button';
 import { connect } from 'react-redux';
 import { setAreasAction } from '../../store/user';
@@ -14,10 +14,10 @@ class FrageEmailView extends Component {
     render() {
         const { setAreasAction, areas } = this.props;
         return (
-            <div>
-                <CardComp>
-                    <TitleComp>5. Haben Sie Zugriff auf Email-Adressen?</TitleComp>
-                    <div style={{display: 'flex'}}>
+            <div style={styles.fragebogen}>
+                <TitleComp>Fragebogen</TitleComp>
+                    <SubTitleComp>5. Haben Sie Zugriff auf Email-Adressen?</SubTitleComp>
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>
                         <Link
                           to={'/finishOnboarding'}
                           onClick={() => setAreasAction([...areas, AREA])
@@ -28,7 +28,6 @@ class FrageEmailView extends Component {
                             <ButtonComp>Nein</ButtonComp>
                         </Link>
                     </div>
-                </CardComp>
             </div>
         )
     }
@@ -37,6 +36,14 @@ class FrageEmailView extends Component {
 FrageEmailView.propTypes = {
     setAreasAction: PropTypes.func,
     areas: PropTypes.array
+};
+
+const styles = {
+    fragebogen: {
+        margin: '60px auto 0 auto',
+        width: '500px',
+        textAlign: 'center'
+    }
 };
 
 const mapStateToProps = state => ({

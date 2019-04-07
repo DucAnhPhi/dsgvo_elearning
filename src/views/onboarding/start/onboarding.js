@@ -13,13 +13,15 @@ class OnboardingView extends React.Component {
         return(
             <div style={styles.onboarding}>
                 <img style={styles.logo} src={require('../../../resources/images/logo.png')}></img>
-                <TextComp style={styles.bottomSpace}>
+                <TextComp>
                     Zunächst beantworten Sie einige Fragen zu Ihrem Arbeitsbereich.
                     <br/>Wir ermitteln dann aus Ihren Antworten Ihren persönlichen Lehrplan.
                 </TextComp>
-                <Link to="/frageAbteilung" style={styles.next}>
-                    <ButtonComp>Fragebogen starten</ButtonComp>
-                </Link>
+                <div style={styles.next}>
+                    <Link to="/frageAbteilung">
+                        <ButtonComp>Fragebogen starten</ButtonComp>
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -35,8 +37,8 @@ const styles = {
         textAlign: 'center',
         width: '700px'
     },
-    bottomSpace: {
-        marginBottom: '30px'
+    next: {
+        marginTop: '30px'
     }
 };
 

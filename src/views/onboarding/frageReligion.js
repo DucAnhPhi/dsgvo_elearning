@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card';
 import TitleComp from '../../components/title/title';
+import SubTitleComp from '../../components/subtitle/subtitle';
 import ButtonComp from '../../components/button/button';
 import { connect } from 'react-redux';
 import { setAreasAction } from '../../store/user';
@@ -14,12 +14,12 @@ class FrageReligionView extends Component {
     render() {
         const { setAreasAction, areas } = this.props;
         return (
-            <div>
-                <CardComp>
-                    <TitleComp>
+            <div style={styles.fragebogen}>
+                <TitleComp>Fragebogen</TitleComp>
+                    <SubTitleComp>
                         3. Haben Sie Zugriff auf Daten über die Religionszugehörigkeit von Personen?
-                    </TitleComp>
-                    <div style={{display: 'flex'}}>
+                    </SubTitleComp>
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '40px'}}>
                         <Link
                           to={'/frageIP'}
                           onClick={() => setAreasAction([...areas, AREA])
@@ -30,7 +30,6 @@ class FrageReligionView extends Component {
                             <ButtonComp>Nein</ButtonComp>
                         </Link>
                     </div>
-                </CardComp>
             </div>
         )
     }
@@ -39,6 +38,14 @@ class FrageReligionView extends Component {
 FrageReligionView.propTypes = {
     setAreasAction: PropTypes.func,
     areas: PropTypes.array
+};
+
+const styles = {
+    fragebogen: {
+        margin: '60px auto 0 auto',
+        width: '500px',
+        textAlign: 'center'
+    }
 };
 
 const mapStateToProps = state => ({

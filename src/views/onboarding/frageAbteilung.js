@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CardComp from '../../components/card/card';
 import TitleComp from '../../components/title/title';
+import SubTitleComp from '../../components/subtitle/subtitle';
 import { WithContext as ReactTags } from 'react-tag-input';
 import './frageAbteilung.css';
 import ButtonComp from '../../components/button/button';
@@ -57,31 +57,29 @@ class FrageAbteilungView extends Component {
 
     render() {
         return (
-            <div>
-                <CardComp>
-                    <TitleComp>1. In welchen Abteilungen arbeiten Sie?</TitleComp>
-                    <ReactTags
-                      tags={this.state.tags}
-                      inline={false}
-                      suggestions={suggestions}
-                      handleDelete={this.handleDelete}
-                      handleAddition={this.handleAddition}
-                      allowDragDrop={false}
-                      autocomplete={false}
-                      minQueryLength={1}
-                      autofocus={true}
-                      delimiters={[]}
-                      placeholder={'Ihre Abteilung (z.B. Finanzen)'}
-                    />
-                    <Link to={'/frageAdresse'}>
-                        <ButtonComp
-                          disabled={this.state.tags.length === 0}
-                          customStyles={{ position: 'absolute', bottom: '60px', right: '60px' }}
-                        >
-                            Weiter
-                        </ButtonComp>
-                    </Link>
-                </CardComp>
+            <div style={styles.fragebogen}>
+                <TitleComp>Fragebogen</TitleComp>
+                <SubTitleComp>1. In welchen Abteilungen arbeiten Sie?</SubTitleComp>
+                <ReactTags
+                    tags={this.state.tags}
+                    inline={false}
+                    suggestions={suggestions}
+                    handleDelete={this.handleDelete}
+                    handleAddition={this.handleAddition}
+                    allowDragDrop={false}
+                    autocomplete={false}
+                    minQueryLength={1}
+                    autofocus={true}
+                    delimiters={[]}
+                    placeholder={'Ihre Abteilung (z.B. Finanzen)'}
+                />
+                <Link to={'/frageAdresse'}>
+                    <ButtonComp
+                        disabled={this.state.tags.length === 0}
+                    >
+                        Weiter
+                    </ButtonComp>
+                </Link>
             </div>
         )
     }
@@ -90,6 +88,14 @@ class FrageAbteilungView extends Component {
 FrageAbteilungView.propTypes = {
     tags: PropTypes.array,
     setAreasAction: PropTypes.func
+};
+
+const styles = {
+    fragebogen: {
+        margin: '60px auto 0 auto',
+        width: '500px',
+        textAlign: 'center'
+    }
 };
 
 const mapStateToProps = state => ({
