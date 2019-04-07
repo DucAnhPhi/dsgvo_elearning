@@ -63,7 +63,7 @@ class QuizComp extends React.Component {
     renderButton() {
         if (this.isFormComplete()) {
             return (
-                <div onClick={this.handleSubmit.bind(this)}>
+                <div onClick={this.handleSubmit.bind(this)} style={{textAlign: 'right', marginTop: '20px'}}>
                     <ButtonComp>
                         Überprüfen
                 </ButtonComp>
@@ -71,8 +71,8 @@ class QuizComp extends React.Component {
             )
         } else {
             return (
-                <div>
-                    <ButtonComp disable>
+                <div style={{textAlign: 'right', marginTop: '20px'}}>
+                    <ButtonComp disabled={true}>
                         Überprüfen
                 </ButtonComp>
                 </div>

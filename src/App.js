@@ -22,6 +22,7 @@ import DatensparsamkeitView from './views/gebot2/datensparsamkeit';
 import RechtAufVergessenView from './views/gebot2/recht_auf_vergessen';
 import QuizView from './views/quiz';
 import ButtonComp from './components/button/button';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -48,11 +49,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div style={styles.topBar}>
+          <div style={{height: '100%', display: 'flex', alignItems: 'center'}}>
+            <img style={{height: '60px', marginLeft: '10px'}} src={require('./resources/images/logo_small.png')}/>
+          </div>
+        </div>
+        <div>
           <Sidebar
             sidebar={<SidebarComp />}
             docked={true}
             defaultSidebarWidth={250}
+            styles={{sidebar: {
+              top: '81px'
+            }}}
           >
             <Route
               path="/"
@@ -80,7 +89,7 @@ class App extends Component {
             />
             <Route
               path="/finishOnboarding"
-              component={() => this.renderViewInModal(<FinishOnboardingView><div onClick={this.handleCloseModal}><ButtonComp>Kurs starten</ButtonComp></div></FinishOnboardingView>)}
+              component={() => this.renderViewInModal(<FinishOnboardingView><Link to={"/gebot1_verbot_mit_erlaubnis"} onClick={this.handleCloseModal}><ButtonComp>Kurs starten</ButtonComp></Link></FinishOnboardingView>)}
             />
             <Route path="/gebot1_verbot_mit_erlaubnis" component={VerbotMitErlaubnisView} />
             <Route path="/gebot1_berechtiges_interesse" component={BerechtigtesInteresseView} />
@@ -99,5 +108,14 @@ class App extends Component {
     );
   }
 }
+
+const styles = {
+  topBar: {
+    height: '80px',
+    borderBottom: '1px solid rgba(0,0,0,0.1)',
+    zIndex: 100,
+    display: 'flex'
+  }
+};
 
 export default App;

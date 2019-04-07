@@ -7,6 +7,8 @@ import WarningComp from '../../components/warning/warning'
 import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class DatensparsamkeitView extends Component {
     render() {
@@ -23,13 +25,17 @@ class DatensparsamkeitView extends Component {
                         </WarningComp>
                     </TextComp>
 
-                    <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )
     }
 }
 
-export default DatensparsamkeitView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(DatensparsamkeitView);

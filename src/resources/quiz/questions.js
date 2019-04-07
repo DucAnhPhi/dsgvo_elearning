@@ -222,8 +222,7 @@ const questions = {
             "possibleAnswers": [
                 "Ankauf und Nutzung von E-Mailadressen",
                 "Das Vervollständigen von Datensätzen in einem CRM durch Daten aus einem öffentlich einsehbaren Telefonbuch.",
-                "Das Sammeln von personenbezogenen Daten für Werbezwecke durch ein Gewinnspiel, bei dem die Preise aber gar nicht ausgegeben werden.",
-                ""
+                "Das Sammeln von personenbezogenen Daten für Werbezwecke durch ein Gewinnspiel, bei dem die Preise aber gar nicht ausgegeben werden."
             ],
             "explanations": [
                 "Falsch: Das war falsch. Die Nutzung von gekauften von E-Mailadressen ist in der Regel illegal. Um Werbe E-Mails zu versenden ist bei Nicht-Bestandskunden eine Einwilligung nötig. Diese kann bei angekauften E-Mailadressen gar nicht rechtmäßig eingeholt werden.",

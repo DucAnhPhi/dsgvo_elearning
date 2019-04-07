@@ -6,6 +6,8 @@ import SubtitleComp from '../../components/subtitle/subtitle';
 import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class EinwilligungBetroffenerView extends Component {
 
@@ -71,13 +73,17 @@ class EinwilligungBetroffenerView extends Component {
                         Normen: Art. 4 Nr. 11 DSGVO, Art. 7 DSGVO
                     </TextComp>
                     
-                    <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )
     }
 }
 
-export default EinwilligungBetroffenerView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(EinwilligungBetroffenerView);

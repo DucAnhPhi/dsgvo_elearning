@@ -4,9 +4,11 @@ import TitleComp from '../../components/title/title'
 import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
-import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { navigateAction } from '../../store/navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class VerbotMitErlaubnisView extends Component {
 
@@ -20,7 +22,7 @@ class VerbotMitErlaubnisView extends Component {
                     <TextComp>Das erste Gebot des Datenschutzes verbirgt sich hinter dem kryptischen Begriff “Verbot mit Erlaubnisvorbehalt”.
                     Gemeint ist damit, dass prinzipiell jede Datenverarbeitung, die der DSGVO unterfällt, zunächst verboten ist. Wie Sie bereits in Kapitel 2.4 Anwendbarkeit der Datenschutzgesetze gelernt haben, ist nicht jede Datenverarbeitung auch ein Fall für die DSGVO. Wenn eine Datenverarbeitung aber unter die DSGVO fällt, dann ist sie erstmal illegal. Damit die Datenverarbeitung erlaubt ist, muss Sie mindestens eine von sechs Bedingungen erfüllen.
                     </TextComp>
-                    <iframe src="https://www.youtube.com/embed/3zIuF1TZC5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{width:"100%", height:"100%;"}}></iframe>
+                    <iframe src="https://www.youtube.com/embed/3zIuF1TZC5s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style={{width: '100%', height: '400px', marginBottom: '10px'}}></iframe>
                     <TextComp>Die Rechtmäßigkeit der Datenverarbeitung liegt vor, wenn:
                         <ol>
                             <li>der Betroffene eine Einwilligung gegeben hat</li>
@@ -41,14 +43,17 @@ class VerbotMitErlaubnisView extends Component {
                         Normen: Art. 6 Abs. 1. lit a) - f) DSGVO; Art. 9 DSGVO
                     </TextComp>
 
-                    <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
-
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )
     }
 }
 
-export default VerbotMitErlaubnisView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(VerbotMitErlaubnisView);

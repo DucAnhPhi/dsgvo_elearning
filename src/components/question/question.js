@@ -6,7 +6,7 @@ class QuestionComp extends React.Component {
     render() {
         const { question, selectAnswer } = this.props;
         return (
-            <div>
+            <div style={{marginBottom: '30px'}}>
                 <SubtitleComp>{question.question}</SubtitleComp>
                 <div>
                     {

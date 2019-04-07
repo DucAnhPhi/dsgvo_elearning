@@ -7,6 +7,8 @@ import WarningComp from '../../components/warning/warning'
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
 import { navigateAction } from '../../store/navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class BerechtigtesInteresseView extends Component {
 
@@ -37,12 +39,17 @@ class BerechtigtesInteresseView extends Component {
                         </ol>
 
                     </TextComp>
-                    <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )
     }
 }
-export default BerechtigtesInteresseView;
+
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(BerechtigtesInteresseView);

@@ -6,7 +6,8 @@ import SubtitleComp from '../../components/subtitle/subtitle'
 import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class ErfüllungVertragView extends Component {
     render() {
@@ -23,9 +24,11 @@ class ErfüllungVertragView extends Component {
                 <br />
                         Bei allen diesen Bedingungen ist zu beachten&comma; das wie bei allen Datenverarbeitungen&comma; nur die wirklich nötigen Daten erhoben werden dürfen (“Datenminimierung”). Das muss im jeweiligen Fall bestimmt werden.
                 </TextComp>
-                    <Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'}>
+                <div style={{textAlign: 'right', marginTop: '20px'}}>
+                    <Link onClick={() => this.props.navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'}>
                         <ButtonComp>Zum Quiz</ButtonComp>
                     </Link>
+                </div>
                 </CardComp>
             </div>
         )
@@ -33,4 +36,6 @@ class ErfüllungVertragView extends Component {
 
 }
 
-export default ErfüllungVertragView;
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(ErfüllungVertragView);

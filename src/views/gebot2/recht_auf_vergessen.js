@@ -6,6 +6,8 @@ import WarningComp from '../../components/warning/warning'
 import { navigateAction } from '../../store/navigation';
 import ButtonComp from '../../components/button/button';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class RechtAufVergessenView extends Component {
 
@@ -29,11 +31,17 @@ class RechtAufVergessenView extends Component {
                     <TextComp>
                         Normen: Art. 17 DSGVO
                     </TextComp>
-                    <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
-                </CardComp></div>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => this.props.navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
+                </CardComp>
+            </div>
         )
     }
 }
-export default RechtAufVergessenView;
+
+const mapDispatchToProps = dispatch => bindActionCreators({ navigateAction }, dispatch);
+
+export default connect(undefined, mapDispatchToProps)(RechtAufVergessenView);

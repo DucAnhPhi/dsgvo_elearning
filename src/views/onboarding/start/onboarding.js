@@ -1,5 +1,4 @@
 import React from 'react';
-import TitleComp from '../../../components/title/title';
 import TextComp from '../../../components/text/text';
 import ButtonComp from '../../../components/button/button';
 import { Link } from 'react-router-dom';
