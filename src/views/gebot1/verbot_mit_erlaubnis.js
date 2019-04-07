@@ -5,7 +5,7 @@ import TextComp from '../../components/text/text';
 import SubtitleComp from '../../components/subtitle/subtitle'
 import WarningComp from '../../components/warning/warning'
 
-class Gebot1View extends Component {
+class VerbotMitErlaubnisView extends Component {
 
     render() {
         
@@ -43,4 +43,4 @@ class Gebot1View extends Component {
     }
 }
 
-export default Gebot1View;
+export default VerbotMitErlaubnisView;
