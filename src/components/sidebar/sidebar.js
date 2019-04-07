@@ -27,26 +27,26 @@ class SidebarComp extends React.Component {
               <span style={styles.bullet}>a)</span>{'Verbot mit Erlaubnisvorbehalt'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'} style={Object.assign({}, this.props.route === "/quiz/gebot1_allgemein" ? styles.active : styles.link, styles.quiz)}>
-              <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Grundlagen'}
+              <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Grundlagen'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={this.props.route === "/gebot1_erfüllung_vertrag" ? styles.active : styles.link}>
               <span style={styles.bullet}>b)</span>{'Erfüllung eines Vertrags'}
             
             </Link><Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'} style={Object.assign({}, this.props.route === '/quiz/gebot1_vertrag' ? styles.active : styles.link, styles.quiz)}>
-            <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Erfüllung eines Vertrags'}
+            <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Erfüllung eines Vertrags'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={this.props.route === '/gebot1_einwilligung_betroffener' ? styles.active : styles.link}>
               <span style={styles.bullet}>d)</span> {'Einwilligung des Betroffenen'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot1_einwilligung')} to={'/quiz/gebot1_einwilligung'} style={Object.assign({}, this.props.route === '/quiz/gebot1_einwilligung' ? styles.active : styles.link, styles.quiz)}>
-            <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Einwilligung des Betroffenen'}
+            <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Einwilligung des Betroffenen'}
             </Link>
 
             <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={this.props.route === "/gebot1_berechtiges_interesse" ? styles.active : styles.link}>
               <span style={styles.bullet}>f)</span>{'Berechtigtes Interesse des Unternehmens'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'} style={Object.assign({}, this.props.route === '/quiz/gebot1_interesse' ? styles.active : styles.link, styles.quiz)}>
-            <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Berechtiges Interesse'}
+            <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Berechtiges Interesse'}
             </Link>
           </Collapsible>
 
@@ -60,13 +60,13 @@ class SidebarComp extends React.Component {
               <span style={styles.bullet}>a)</span>{'Datensparsamkeit'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'} style={Object.assign({}, this.props.route === '/quiz/gebot2_allgemein' ? styles.active : styles.link, styles.quiz)}>
-            <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Datensparsamkeit'}
+            <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Datensparsamkeit'}
             </Link>
             <Link onClick={() => navigateAction('/gebot2_recht_auf_vergessen')} to={'/gebot2_recht_auf_vergessen'} style={this.props.route === "/gebot2_recht_auf_vergessen" ? styles.active : styles.link}>
               <span style={styles.bullet}>b)</span>{'Recht auf Vergessen'}
             </Link>
             <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'} style={Object.assign({}, this.props.route === '/quiz/gebot2_vergessen' ? styles.active : styles.link, styles.quiz)}>
-            <img src={require('./quiz.png')} style={{height: '20px', width: '20px', marginLeft: '11px', marginRight: '11px'}}/>{'Quiz: Recht auf Vergessen'}
+            <img src={require('./quiz.png')} style={styles.quizicon}/>{'Quiz: Recht auf Vergessen'}
             </Link>
 
           </Collapsible>
@@ -118,6 +118,12 @@ const styles = {
   quiz: {
     display: 'flex',
     alignItems: 'center'
+  },
+  quizicon: {
+    height: '20px',
+    width: '20px',
+    marginLeft: '40px',
+    marginRight: '11px'
   },
   active: {
     display: "block",
