@@ -29,7 +29,7 @@ const questions = {
                 "Falsch: Das war nicht ganz richtig. Eine Einwilligung ist nur eine von sechs Bedingungen auf deren Grundlage eine Datenverarbeitung erlaubt ist.",
                 "Richtig: Das war korrekt. Weiter so!"
             ],
-            "rightAnswer": 1,
+            "rightAnswer": 2,
             "tag": "all"
         },
         {
@@ -174,7 +174,7 @@ const questions = {
             "id": "gebot1_interesse_1",
             "question": "Was sind berechtigte Interessen eines Unternehmens?",
             "possibleAnswers": [
-                "jedes gesetzeskonforme Anliegen",
+                "Jedes gesetzeskonforme Anliegen",
                 "Kunden gewinnen und Umsätze steigern",
                 "Sicherheit und Überwachung"
             ],
@@ -206,7 +206,7 @@ const questions = {
             "possibleAnswers": [
                 "Eine strategische Analyse von Kundendaten",
                 "Das Sammeln von privaten Daten von Mitarbeitern der Konkurrenz",
-                "Das abgreifen von personenbezogenen Daten durch eine Schwachstelle eines Servers."
+                "Das abgreifen von personenbezogenen Daten durch eine Schwachstelle eines Servers"
             ],
             "explanations": [
                 "Richtig: Eine strategische Analyse von Kundendaten ist prinzipiell ein gesetzeskonformes Anliegen. ",
@@ -225,7 +225,7 @@ const questions = {
                 "Das Sammeln von personenbezogenen Daten für Werbezwecke durch ein Gewinnspiel, bei dem die Preise aber gar nicht ausgegeben werden."
             ],
             "explanations": [
-                "Falsch: Das war falsch. Der Nutzung von gekauften von E-Mailadressen ist in der Regel illegal. Um Werbe E-Mails zu versenden ist bei Nicht-Bestandskunden eine Einwilligung nötig. Diese kann bei angekauften E-Mailadressen gar nicht rechtmäßig eingeholt werden.",
+                "Falsch: Das war falsch. Die Nutzung von gekauften von E-Mailadressen ist in der Regel illegal. Um Werbe E-Mails zu versenden ist bei Nicht-Bestandskunden eine Einwilligung nötig. Diese kann bei angekauften E-Mailadressen gar nicht rechtmäßig eingeholt werden.",
                 "Richtig:  Das ist korrekt. Das ist prinzipiell ein berechtigtes Interesse. ",
                 "Falsch: Irreführende Gewinnspiele sind illegal gem. § 5 a Abs. 2 - 4 UWG. Illegale Tätigkeiten sind kein gesetzeskonformes Anliegen."
             ],
@@ -239,9 +239,9 @@ const questions = {
             "question": "Welche Mengen von Daten dürfen sie erheben?",
             "possibleAnswers": [
                 "Zur Sicherheit vor Rechtsstreitigkeiten müssen so viele Daten wie möglich erhoben werden.",
-                "Es dürfen nur die Daten erhoben werden, die für ihren Zweck angemessen werden.",
+                "Es dürfen nur die Daten erhoben werden, die für den geplannten Zweck angemessen sind.",
                 "Es dürfen so viele Daten erhoben werden, wie man sicher speichern kann.",
-                " Es dürfen nur Daten für die geplante Datenverarbeitung erhoben werden und solche Daten, die man vermutlich auch in Zukunft benötigt."
+                "Es dürfen nur Daten für die geplante Datenverarbeitung erhoben werden und solche Daten, die man vermutlich auch in Zukunft benötigt."
             ],
             "explanations": [
                 "Falsch: Das ist falsch. Es geht gerade darum, so wenig Daten wie möglich zu erheben. Es gilt genau zu ermitteln welche Daten benötigt werden, auch für mögliche Rechtsstreitigkeiten in der Zukunft. Hierzu berät sie idealerweise ein Jurist.",
