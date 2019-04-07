@@ -37,9 +37,11 @@ class BerechtigtesInteresseView extends Component {
                         </ol>
 
                     </TextComp>
-                    <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => navigateAction('/quiz/gebot1_interesse')} to={'/quiz/gebot1_interesse'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )

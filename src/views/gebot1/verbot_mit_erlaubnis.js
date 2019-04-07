@@ -40,10 +40,11 @@ class VerbotMitErlaubnisView extends Component {
                         Normen: Art. 6 Abs. 1. lit a) - f) DSGVO; Art. 9 DSGVO
                     </TextComp>
 
-                    <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
-
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => navigateAction('/quiz/gebot1_allgemein')} to={'/quiz/gebot1_allgemein'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )

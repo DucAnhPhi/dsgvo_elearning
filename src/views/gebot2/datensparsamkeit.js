@@ -23,9 +23,11 @@ class DatensparsamkeitView extends Component {
                         </WarningComp>
                     </TextComp>
 
-                    <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => navigateAction('/quiz/gebot2_allgemein')} to={'/quiz/gebot2_allgemein'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
                 </CardComp>
             </div>
         )

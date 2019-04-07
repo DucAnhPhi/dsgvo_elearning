@@ -23,9 +23,11 @@ class ErfüllungVertragView extends Component {
                 <br />
                         Bei allen diesen Bedingungen ist zu beachten&comma; das wie bei allen Datenverarbeitungen&comma; nur die wirklich nötigen Daten erhoben werden dürfen (“Datenminimierung”). Das muss im jeweiligen Fall bestimmt werden.
                 </TextComp>
+                <div style={{textAlign: 'right', marginTop: '20px'}}>
                     <Link onClick={() => navigateAction('/quiz/gebot1_vertrag')} to={'/quiz/gebot1_vertrag'}>
                         <ButtonComp>Zum Quiz</ButtonComp>
                     </Link>
+                </div>
                 </CardComp>
             </div>
         )

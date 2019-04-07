@@ -29,10 +29,13 @@ class RechtAufVergessenView extends Component {
                     <TextComp>
                         Normen: Art. 17 DSGVO
                     </TextComp>
-                    <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'}>
-                        <ButtonComp>Zum Quiz</ButtonComp>
-                    </Link>
-                </CardComp></div>
+                    <div style={{textAlign: 'right', marginTop: '20px'}}>
+                        <Link onClick={() => navigateAction('/quiz/gebot2_vergessen')} to={'/quiz/gebot2_vergessen'}>
+                            <ButtonComp>Zum Quiz</ButtonComp>
+                        </Link>
+                    </div>
+                </CardComp>
+            </div>
         )
     }
 }
