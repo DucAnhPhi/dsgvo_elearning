@@ -54,6 +54,7 @@ class App extends Component {
             <img style={{height: '60px', marginLeft: '10px'}} src={require('./resources/images/logo_small.png')}/>
           </div>
         </div>
+        <img src={require('./resources/images/stats.png')} style={{position: 'absolute', top: '100px', right: '60px', width: '400px'}}/>
         <div>
           <Sidebar
             sidebar={<SidebarComp />}
