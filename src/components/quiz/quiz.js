@@ -65,7 +65,7 @@ class QuizComp extends React.Component {
         return (
             <div>
                 {this.renderQuestions()}
-                <div onClick={this.handleSubmit.bind(this)}>
+                <div onClick={this.handleSubmit.bind(this)} style={{textAlign: 'right', marginTop: '20px'}}>
                     <ButtonComp>
                         Überprüfen
                     </ButtonComp>
