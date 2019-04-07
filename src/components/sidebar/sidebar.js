@@ -10,7 +10,7 @@ class SidebarComp extends React.Component {
   render() {
     const navigateAction = this.props.navigateAction
     return (
-      <div style={{ width: 280, height: "100%" }}>
+      <div style={{ width: 340, height: "100%" }}>
         <Collapsible
           trigger="Fragebogen"
           triggerStyle={styles.collapsible}
@@ -39,26 +39,37 @@ class SidebarComp extends React.Component {
         >
           <Collapsible
             trigger={'1. Gebot'}
-            triggerStyle={styles.collapsible}
+            triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
           >
             <Link onClick={() => navigateAction('/gebot1_verbot_mit_erlaubnis')} to={'/gebot1_verbot_mit_erlaubnis'} style={styles.link}>
               <span style={styles.bullet}>a)</span>{'Verbot mit Erlaubnisvorbehalt'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_erfüllung_vertrag')} to={'/gebot1_erfüllung_vertrag'} style={styles.link}>
-            <span style={styles.bullet}>b)</span>{'Erfüllung eines Vertrags'}
+              <span style={styles.bullet}>b)</span>{'Erfüllung eines Vertrags'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_einwilligung_betroffener')} to={'/gebot1_einwilligung_betroffener'} style={styles.link}>
-            <span style={styles.bullet}>c)</span> {'Einwilligung des Betroffenen'}
+              <span style={styles.bullet}>c)</span> {'Einwilligung des Betroffenen'}
             </Link>
             <Link onClick={() => navigateAction('/gebot1_berechtiges_interesse')} to={'/gebot1_berechtiges_interesse'} style={styles.link}>
-            <span style={styles.bullet}>d)</span>{'Berechtigtes Interesse des Unternehmens'}
+              <span style={styles.bullet}>d)</span>{'Berechtigtes Interesse des Unternehmens'}
             </Link>
 
           </Collapsible>
-          <Link onClick={() => navigateAction('/gebot2')} to={'/gebot2'} style={styles.link}>
-            {'2. Gebot: Datensparsamkeit'}
-          </Link>
+
+          <Collapsible
+            trigger={'2. Gebot'}
+            triggerStyle={styles.nestedCollapsible}
+            transitionTime={100}
+          >
+            <Link onClick={() => navigateAction('/gebot2_datensparsamkeit')} to={'/gebot2_datensparsamkeit'} style={styles.link}>
+              <span style={styles.bullet}>a)</span>{'Datensparsamkeit'}
+            </Link>
+            <Link onClick={() => navigateAction('/gebot2_recht_auf_vergessen')} to={'/gebot2_recht_auf_vergessen'} style={styles.link}>
+              <span style={styles.bullet}>b)</span>{'Recht auf Vergessen'}
+            </Link>
+
+          </Collapsible>
           <Link onClick={() => navigateAction('/gebot3')} to={'/gebot3'} style={styles.link}>
             {'3. Gebot: Zweckbindung'}
           </Link>
@@ -89,6 +100,13 @@ const styles = {
     fontWeight: "bold",
     paddingLeft: "20px"
   },
+
+  nestedCollapsible: {
+    fontSize: "14px",
+    lineHeight: "30px",
+    fontWeight: "bold",
+    paddingLeft: "20px"
+  },
   link: {
     display: "block",
     paddingLeft: "20px",
@@ -101,7 +119,7 @@ const styles = {
     marginRight: "15px",
     marginLeft: "15px",
     fontSize: "14px",
-    fontWeight : "bold",
+    fontWeight: "bold",
     color: "black",
     lineHeight: "30px"
   }
