@@ -12,11 +12,13 @@ class SidebarComp extends React.Component {
     return (
       <div style={{ width: 340, height: "100%" }}>
         <Collapsible
+          open={true}
           trigger="Die 6 Gebote des Datenschutzes"
           triggerStyle={styles.collapsible}
           transitionTime={100}
         >
           <Collapsible
+            open={true}
             trigger={'1. Gebot'}
             triggerStyle={styles.nestedCollapsible}
             transitionTime={100}
